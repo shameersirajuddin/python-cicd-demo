@@ -23,7 +23,7 @@ jobs:
         run: uv sync --all-extras --dev
 
       - name: Lint (Ruff)
-        run: uv run ruff check .
+        run: uv run python -m ruff check .
 
       - name: Test (Pytest)
         run: uv run pytest
