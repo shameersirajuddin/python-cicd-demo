@@ -19,6 +19,9 @@ jobs:
       - name: Set up Python
         run: uv python install 3.12
 
+      - name: Force Update Lockfile (Linux)
+        run: uv lock
+
       - name: Install Dependencies
         run: uv sync --all-extras --dev
 
