@@ -6,7 +6,7 @@ client = TestClient(app)
 def test_read_root():
     response = client.get("/")
     assert response.status_code == 200
-    assert response.json() == {"message": "Hello from Docker, uv, and FastAPI!"}
+    assert response.json() == {"message": "Hello from Docker, uv, and FastAPI! Now Live on fly.io endpoint"}
 
 def test_health():
     response = client.get("/health")
