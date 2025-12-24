@@ -14,6 +14,8 @@ jobs:
 
       - name: Install uv
         uses: astral-sh/setup-uv@v1
+        with:
+          version: "0.5.1"  # <--- FORCE this specific modern version
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -21,10 +23,9 @@ jobs:
           python-version: '3.12'
 
       - name: Install Dependencies
-        # We use --frozen to trust the lockfile exactly
-        # We explicitly ask for the 'dev' group (where ruff is)
-        run: uv sync --frozen --group dev
-
+        # uv sync installs 'dev' dependencies by default, so we don't need flags
+        run: uv sync --frozen
+        
       - name: Lint (Ruff)
         run: uv run ruff check .
 
